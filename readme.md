@@ -12,5 +12,5 @@ This is a simple React Native app that helps users track their daily water intak
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/WaterReminderApp.git
+   git clone https://github.com/kashavpiya/DrinkWaterApp
    ```
