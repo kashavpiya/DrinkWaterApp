@@ -4,6 +4,7 @@ import Slider from '@react-native-community/slider';
 import SwitchSelector from 'react-native-switch-selector';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
+import { scheduleReminder } from '../utils/notifications';
 
 export default function ReminderSettings() {
   const [unit, setUnit] = useState('liters');
@@ -12,6 +13,11 @@ export default function ReminderSettings() {
   const [containerSize, setContainerSize] = useState('');
   const [dailyTarget, setDailyTarget] = useState(2);
   const [reminderInterval, setReminderInterval] = useState(1);
+
+  const handleSetReminder = () => {
+    const seconds = parseInt(reminderInterval) * 60;
+    scheduleReminder(seconds);
+  };
 
   useFocusEffect(
     React.useCallback(() => {
@@ -47,6 +53,7 @@ export default function ReminderSettings() {
   );
 
   const saveSettings = async () => {
+    handleSetReminder();
     try {
       await AsyncStorage.setItem('settings', JSON.stringify({
         unit,
@@ -139,7 +146,7 @@ export default function ReminderSettings() {
           onValueChange={(value) => setReminderInterval(value)}
           style={styles.slider}
         />
-        <Text>Every {reminderInterval} hours</Text>
+        <Text>Every {reminderInterval} minutes</Text>
       </View>
 
       <TouchableOpacity style={styles.gradientButton} onPress={saveSettings}>
