@@ -2,22 +2,28 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import WaterIntakeTracker from '../components/WaterIntakeTracker';
 import * as Animatable from 'react-native-animatable';
+import Header from '../components/Header'; // Import the Header component
 
 export default function HomeScreen() {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Water Intake Tracker</Text>
-      <Animatable.View animation="fadeInUp" style={styles.boxContainer}>
-        <WaterIntakeTracker />
-      </Animatable.View>
-    </ScrollView>
+    <View style={styles.container}>
+      <Header /> 
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <Text style={styles.title}>Water Intake Tracker</Text>
+        <Animatable.View animation="fadeInUp" style={styles.boxContainer}>
+          <WaterIntakeTracker />
+        </Animatable.View>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F3F3F3', 
+    backgroundColor: '#F3F3F3',
+  },
+  scrollContainer: {
     padding: 16,
     alignItems: 'center',
   },
@@ -35,11 +41,11 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   title: {
-    marginTop: 50, 
-    fontSize: 32,
+    marginTop: 20, // Adjusted margin since header is added above
+    fontSize: 26,
     fontWeight: '700',
     color: '#444',
-    marginBottom: 20,
+    marginBottom: 15,
     textAlign: 'center',
   },
 });

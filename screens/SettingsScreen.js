@@ -5,6 +5,7 @@ import SwitchSelector from 'react-native-switch-selector';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { scheduleReminder } from '../utils/notifications';
+import Header from '../components/Header'; 
 
 export default function ReminderSettings() {
   const [unit, setUnit] = useState('liters');
@@ -82,6 +83,7 @@ export default function ReminderSettings() {
 
   return (
     <ScrollView style={styles.container}>
+      <Header />
       <Text style={styles.title}>Preferences</Text>
       <View style={styles.boxContainer}>
         <Text style={styles.label}>Select Unit</Text>
@@ -161,15 +163,15 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     backgroundColor: '#F3F3F3', 
-    padding: 16,
+    paddingHorizontal: 16,
     paddingBottom: 50,
   },
   title: {
-    marginTop: 50, 
-    fontSize: 32,
+    marginTop: 36, 
+    fontSize: 26,
     fontWeight: '700',
     color: '#444',
-    marginBottom: 20,
+    marginBottom: 15,
     textAlign: 'center',
   },
   boxContainer: {

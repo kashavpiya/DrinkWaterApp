@@ -1,10 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 
-export default function Header({ title }) {
+export default function Header() {
   return (
     <View style={styles.header}>
-      <Text style={styles.headerTitle}>{title}</Text>
+      <Image
+        source={require('../assets/logo-no-background.png')}
+        style={styles.logo}
+        resizeMode="contain"
+      />
     </View>
   );
 }
@@ -13,13 +17,14 @@ const styles = StyleSheet.create({
   header: {
     width: '100%',
     height: 60,
+    paddingTop: 100,
+    paddingBottom: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#bde0fe',
+    backgroundColor: '#F3F3F3',
   },
-  headerTitle: {
-    color: '#fff',
-    fontSize: 20,
-    fontWeight: 'bold',
+  logo: {
+    width: 200,
+    height: 53,
   },
 });
