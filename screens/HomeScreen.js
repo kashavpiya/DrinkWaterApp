@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import WaterIntakeTracker from '../components/WaterIntakeTracker';
 import * as Animatable from 'react-native-animatable';
-import Header from '../components/Header'; // Import the Header component
+import Header from '../components/Header';
 
 export default function HomeScreen() {
   return (
