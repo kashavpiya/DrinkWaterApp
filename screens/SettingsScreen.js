@@ -16,7 +16,7 @@ export default function ReminderSettings() {
   const [reminderInterval, setReminderInterval] = useState(1);
 
   const handleSetReminder = () => {
-    const seconds = parseInt(reminderInterval) * 60;
+    const seconds = parseInt(reminderInterval) * 60 * 60;
     scheduleReminder(seconds);
   };
 
@@ -148,7 +148,7 @@ export default function ReminderSettings() {
           onValueChange={(value) => setReminderInterval(value)}
           style={styles.slider}
         />
-        <Text>Every {reminderInterval} minutes</Text>
+        <Text>Every {reminderInterval} hours</Text>
       </View>
 
       <TouchableOpacity style={styles.gradientButton} onPress={saveSettings}>
