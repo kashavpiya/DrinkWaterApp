@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
   },
   buttonText: {
-    fontFamily: 'SofiaSans_400Regular',
+    
     textDecorationLine: 'none',
     color: '#0E82FF',
     fontSize: 18,

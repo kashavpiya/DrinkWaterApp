@@ -25,7 +25,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.kashavpiya.waterooapp"
+      "package": "com.kashavpiya.waterooapp",
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png"
