@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <View style={styles.header}>
       <Image
-        source={require('../assets/logo-no-background.png')}
+        source={require('../assets/Wateroo_transparent.png')}
         style={styles.logo}
         resizeMode="contain"
       />
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F3F3',
   },
   logo: {
-    width: 200,
-    height: 53,
+    width: 600,
+    height: 250,
   },
 });

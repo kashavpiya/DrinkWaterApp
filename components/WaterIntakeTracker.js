@@ -93,13 +93,13 @@ export default function WaterIntakeTracker() {
   const getTitle = () => {
     switch (containerType) {
       case 'glass':
-        return 'Total Glasses Today';
+        return 'Total Glasses';
       case 'bottle':
-        return 'Total Bottles Today';
+        return 'Total Bottles';
       case 'cup':
-        return 'Total Cups Today';
+        return 'Total Cups';
       default:
-        return 'Total Water Today';
+        return 'Total Water';
     }
   };
 
