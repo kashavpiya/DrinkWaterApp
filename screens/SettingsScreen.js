@@ -83,7 +83,7 @@ export default function ReminderSettings() {
 
   return (
     <ScrollView style={styles.container}>
-      <Header />
+      
       <Text style={styles.title}>Preferences</Text>
       <View style={styles.boxContainer}>
         <Text style={styles.label}>Select Unit</Text>
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
   },
   title: {
-    marginTop: 36, 
+    marginTop: 66, 
     fontSize: 26,
     fontWeight: '700',
     color: '#444',
