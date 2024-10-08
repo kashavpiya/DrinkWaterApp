@@ -147,6 +147,9 @@ export default function ReminderSettings() {
           value={reminderInterval}
           onValueChange={(value) => setReminderInterval(value)}
           style={styles.slider}
+          accessibilityLabel={`Set your daily target for water intake. Current target is ${dailyTarget} ${containerType}.`}
+          accessibilityHint="Use the slider to adjust your daily water intake target."
+          accessibilityRole="adjustable"
         />
         <Text>Every {reminderInterval} hours</Text>
       </View>

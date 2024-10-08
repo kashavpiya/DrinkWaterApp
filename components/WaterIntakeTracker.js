@@ -123,7 +123,7 @@ export default function WaterIntakeTracker() {
           inActiveStrokeWidth={20}
         />
       </View>
-      <Button title={`Add a ${containerType}`} onPress={incrementGlasses} />
+      <Button title={`Add a ${containerType}`} onPress={incrementGlasses}/>
     </View>
   );
 }
@@ -134,5 +134,5 @@ const styles = StyleSheet.create({
   },
   topContainer: {
     marginBottom: 20,
-  },
+  }
 });
