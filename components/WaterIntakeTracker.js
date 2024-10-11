@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Button, StyleSheet } from 'react-native';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
-import moment from 'moment'; // We'll use this to handle date/time comparisons
+import moment from 'moment';
 
 export default function WaterIntakeTracker() {
   const [glasses, setGlasses] = useState(0);
@@ -20,10 +20,8 @@ export default function WaterIntakeTracker() {
           const savedGlasses = await AsyncStorage.getItem('glasses');
           const savedDate = await AsyncStorage.getItem('lastSavedDate');
 
-          // Check if today is a new day compared to the saved date
           const currentDate = moment().format('YYYY-MM-DD');
           if (savedDate !== currentDate) {
-            // It's a new day, reset the glasses count
             setGlasses(0);
             await AsyncStorage.setItem('lastSavedDate', currentDate);
           } else if (savedGlasses) {
@@ -39,8 +37,6 @@ export default function WaterIntakeTracker() {
           const settingsJson = await AsyncStorage.getItem('settings');
           if (settingsJson) {
             const settings = JSON.parse(settingsJson);
-            console.log('Fetched settings:', settings);
-
             const targetValue = settings.dailyTarget || 3;
             const unitValue = settings.unit || 'liters';
             const container = settings.containerType || 'glass';
@@ -49,15 +45,14 @@ export default function WaterIntakeTracker() {
             setUnit(unitValue);
             setTarget(targetValue);
 
-            // Update maxValue based on target and unit
             let calculatedMaxValue = targetValue;
             if (unitValue === 'gallons') {
-              calculatedMaxValue *= 0.264172; // Convert liters to gallons
+              calculatedMaxValue *= 0.264172;
             }
 
             setMaxValue(calculatedMaxValue);
           } else {
-            setMaxValue(3); // Default to 3 liters
+            setMaxValue(3);
           }
         } catch (error) {
           console.error('Failed to fetch settings:', error);
@@ -66,11 +61,27 @@ export default function WaterIntakeTracker() {
 
       fetchGlasses();
       fetchSettings();
-    }, []) // The empty dependency array ensures this effect runs once on mount and when focused
+    }, [])
   );
 
+  const saveDailyHistory = async () => {
+    try {
+      const currentDate = moment().format('YYYY-MM-DD');
+      const savedHistory = await AsyncStorage.getItem('intakeHistory');
+      let history = savedHistory ? JSON.parse(savedHistory) : {};
+      
+      history[currentDate] = glasses;
+      await AsyncStorage.setItem('intakeHistory', JSON.stringify(history));
+    } catch (error) {
+      console.error('Failed to save daily history:', error);
+    }
+  };
+
   useEffect(() => {
-    // Save glasses count to AsyncStorage whenever it updates
+    saveDailyHistory();
+  }, [glasses]);
+
+  useEffect(() => {
     const saveGlasses = async () => {
       try {
         await AsyncStorage.setItem('glasses', glasses.toString());
@@ -120,7 +131,7 @@ export default function WaterIntakeTracker() {
           delay={0}
           activeStrokeWidth={22}
           inActiveStrokeColor={'#1081ff'}
-          inActiveStrokeWidth={20}
+          inActiveStrokeWidth={22}
         />
       </View>
       <Button title={`Add a ${containerType}`} onPress={incrementGlasses}/>

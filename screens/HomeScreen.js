@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import WaterIntakeTracker from '../components/WaterIntakeTracker';
 import * as Animatable from 'react-native-animatable';
 import Header from '../components/Header';
+import WeeklyIntake from '../components/WeeklyIntake';
 
 export default function HomeScreen() {
   return (
@@ -13,6 +14,9 @@ export default function HomeScreen() {
         <Animatable.View animation="fadeInUp" style={styles.boxContainer}>
           <WaterIntakeTracker />
         </Animatable.View>
+        <Animatable.View animation="fadeInUp" style={styles.boxContainer}>
+          <WeeklyIntake />
+        </Animatable.View> 
       </ScrollView>
     </View>
   );
@@ -41,7 +45,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   title: {
-    marginTop: 20, // Adjusted margin since header is added above
+    marginTop: 20,
     fontSize: 26,
     fontWeight: '700',
     color: '#444',
