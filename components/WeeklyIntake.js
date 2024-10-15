@@ -48,11 +48,12 @@ export default function WeeklyIntake() {
           width={Dimensions.get('window').width - 40}
           height={220}
           chartConfig={{
-            backgroundColor: '#FAFAFA',
-            backgroundGradientFrom: '#FAFAFA',
-            backgroundGradientTo: '#FAFAFA',
+            backgroundColor: '#434343',
+            backgroundGradientFrom: '#434343',
+            backgroundGradientTo: '#434343',
             decimalPlaces: 0,
-            color: (opacity = 1) => `rgba(16, 129, 255, ${opacity})`,
+            // color: (opacity = 1) => `rgba(16, 129, 255, ${opacity})`,
+            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           }}
           style={{ marginVertical: 8,  borderRadius: 16 }}
         />
@@ -68,9 +69,9 @@ const styles = StyleSheet.create({
         padding: 35,
     },
     title:{
-        color: '#1081ff',
+        color: 'white',
         fontSize: 17,
         fontWeight: 'bold',
-        marginBottom: 5,
+        marginBottom: 10,
     }
 });

@@ -8,9 +8,9 @@ import WeeklyIntake from '../components/WeeklyIntake';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Header /> 
+      
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={styles.title}>Water Intake Tracker</Text>
+      <Header /> 
         <Animatable.View animation="fadeInUp" style={styles.boxContainer}>
           <WaterIntakeTracker />
         </Animatable.View>
@@ -25,7 +25,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F3F3F3',
+    backgroundColor: '#545454',
   },
   scrollContainer: {
     padding: 16,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   boxContainer: {
     width: '100%',
     padding: 20,
-    backgroundColor: '#FAFAFA',
+    backgroundColor: '#434343',
     borderRadius: 30,
     elevation: 3,
     shadowColor: '#000000',
@@ -42,13 +42,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 5,
     alignItems: 'center',
-    marginTop: 30,
+    marginTop: 40,
   },
   title: {
     marginTop: 20,
     fontSize: 26,
     fontWeight: '700',
-    color: '#444',
+    color: '#fff',
     marginBottom: 15,
     textAlign: 'center',
   },

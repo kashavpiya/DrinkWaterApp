@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <View style={styles.header}>
       <Image
-        source={require('../assets/Wateroo_transparent.png')}
+        source={require('../assets/logoTrans.png')}
         style={styles.logo}
         resizeMode="contain"
       />
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F3F3F3',
+    backgroundColor: '#545454',
   },
   logo: {
     width: 600,

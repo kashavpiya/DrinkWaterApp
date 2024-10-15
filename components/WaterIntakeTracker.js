@@ -122,19 +122,19 @@ export default function WaterIntakeTracker() {
           maxValue={maxValue}
           radius={120}
           duration={0}
-          progressValueColor={'#1081ff'}
+          progressValueColor={'#0E82FF'}
           progressValueStyle={{ fontSize: 54 }}
-          activeStrokeColor={'#1081ff'}
+          activeStrokeColor={'#0E82FF'}
           title={getTitle()}
-          titleColor={'#1081ff'}
+          titleColor={'#0E82FF'}
           titleStyle={{ fontSize: 17 }}
           delay={0}
           activeStrokeWidth={22}
-          inActiveStrokeColor={'#1081ff'}
+          inActiveStrokeColor={'#0E82FF'}
           inActiveStrokeWidth={22}
         />
       </View>
-      <Button title={`Add a ${containerType}`} onPress={incrementGlasses}/>
+      <Button title={`Add a ${containerType}`} onPress={incrementGlasses} color="#0E82FF"/>
     </View>
   );
 }

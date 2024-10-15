@@ -8,23 +8,42 @@ const Tab = createBottomTabNavigator();
 
 export default function TabNavigator() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false, tabBarIcon: (() => (
-                <MaterialCommunityIcons
-                  focused
-                  name={'home'}
-                  size={30}
-                  color={'#1081ff'}
-                />
-              )), }} />
-      <Tab.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false, tabBarIcon: (() => (
-                <MaterialCommunityIcons
-                  focused
-                  name={'cog'}
-                  size={30}
-                  color={'#1081ff'}
-                />
-              )), }} />
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#434343',
+        },
+        tabBarShowLabel: true, // Hides labels if needed
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <MaterialCommunityIcons
+              name="home"
+              size={focused ? 35 : 30} // Increase size when focused
+              color={focused ? '#0E82FF' : '#fff'} // Blue when focused, white otherwise
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <MaterialCommunityIcons
+              name="cog"
+              size={focused ? 35 : 30} // Increase size when focused
+              color={focused ? '#0E82FF' : '#fff'} // Blue when focused, white otherwise
+            />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }

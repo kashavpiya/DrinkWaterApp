@@ -136,7 +136,7 @@ export default function ReminderSettings() {
           onValueChange={(value) => setDailyTarget(value)}
           style={styles.slider}
         />
-        <Text>{dailyTarget} {containerType}</Text>
+        <Text style={{color: 'white'}}>{dailyTarget} {containerType}</Text>
       </View>
       <View style={styles.boxContainer}>
         <Text style={styles.label}>Reminder Interval (hours)</Text>
@@ -148,7 +148,7 @@ export default function ReminderSettings() {
           onValueChange={(value) => setReminderInterval(value)}
           style={styles.slider}
         />
-        <Text>Every {reminderInterval} hours</Text>
+        <Text style={{color: 'white'}}>Every {reminderInterval} hours</Text>
       </View>
 
       <TouchableOpacity style={styles.gradientButton} onPress={saveSettings}>
@@ -162,7 +162,7 @@ export default function ReminderSettings() {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    backgroundColor: '#F3F3F3', 
+    backgroundColor: '#545454', 
     paddingHorizontal: 16,
     paddingBottom: 50,
   },
@@ -170,14 +170,14 @@ const styles = StyleSheet.create({
     marginTop: 66, 
     fontSize: 26,
     fontWeight: '700',
-    color: '#444',
+    color: 'white',
     marginBottom: 15,
     textAlign: 'center',
   },
   boxContainer: {
     width: '100%',
     padding: 16,
-    backgroundColor: '#FAFAFA',
+    backgroundColor: '#434343',
     borderRadius: 20,
     elevation: 3,
     shadowColor: '#000000',
@@ -192,9 +192,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign: 'left',
     width: '100%',
+    color: 'white'
   },
   subLabel: {
-    color: 'grey',
+    color: '#999',
   },
   input: {
     height: 50,
@@ -204,6 +205,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 10,
     width: '100%',
+    color:'white'
   },
   slider: {
     width: '100%',
@@ -216,15 +218,14 @@ const styles = StyleSheet.create({
   gradientButton: {
     marginVertical: 30,
     borderWidth: 3,
-    borderColor: '#0E82FF',
+    borderColor: 'white',
     borderRadius: 20,
     alignItems: 'center',
     paddingVertical: 6,
   },
   buttonText: {
-    
     textDecorationLine: 'none',
-    color: '#0E82FF',
+    color: 'white',
     fontSize: 18,
   },
 });
